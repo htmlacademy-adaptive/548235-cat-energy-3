@@ -1,0 +1,60 @@
+@use "../common" as *;
+
+.social-list {
+  @include list-style;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 132px;
+
+  @media (min-width: $tablet-width) {
+    margin-left: 37px;
+  }
+}
+
+.social-list__item {
+  width: 28px;
+  height: 22px;
+}
+
+.social-list__link {
+  margin-inline: auto;
+  display: block;
+  background-color: $special-grey;
+  transition: background-color 0.15s ease;
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    background-color: $basic-green;
+  }
+
+  &:focus-within {
+    outline: 2px solid $base-color-text;
+    outline-offset: -22px;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  &--vk {
+    width: 27px;
+    height: 17px;
+    mask-image: url("../../icons/stack.svg#icon-vk");
+  }
+
+  &--youtube {
+    margin-top: -2px;
+    width: 24px;
+    height: 19px;
+    mask-image: url("../../icons/stack.svg#icon-youtube");
+  }
+
+  &--telegram {
+    width: 20px;
+    height: 17px;
+    mask-image: url("../../icons/stack.svg#icon-telegram");
+  }
+}

@@ -1,0 +1,52 @@
+@use "../common" as *;
+
+.program-search {
+  padding-block: 27px 32px;
+  border-top: 1px solid $special-light-grey6;
+  overflow-x: hidden;
+
+  @media (min-width: $tablet-width) {
+    padding-block: 65px 60px;
+    border-top: none;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-block: 74px 82px;
+  }
+}
+
+.program-search__container {
+  @media (min-width: $tablet-width) {
+    padding-inline: 70px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-inline: $side-padding-desktop;
+  }
+}
+
+.program-search__title {
+  margin-block: 0 37px;
+  font-weight: 400;
+
+  @include font($secondary-font, 36px, 36px, $basic-black);
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 54px;
+
+    @include font-resize(60px, 60px);
+  }
+}
+
+.program-search__description {
+  margin-block: 0 39px;
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  color: $basic-black;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 66px;
+
+    @include font-resize(20px, 30px);
+  }
+}

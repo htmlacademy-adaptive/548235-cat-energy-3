@@ -1,0 +1,91 @@
+@use "../common" as *;
+
+.program-form {
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "personal   target"
+      "contacts   contacts"
+      "comments   comments"
+      "additional additional"
+      "wrapper    wrapper";
+    column-gap: 80px;
+  }
+}
+
+.program-form__group:nth-child(1) {
+  grid-area: personal;
+
+  @include margin-bottom-resize(46px, 72px, 70px);
+}
+
+.program-form__group:nth-child(2) {
+  grid-area: target;
+
+  @include margin-bottom-resize(45px, 64px, 70px);
+}
+
+.program-form__group:nth-child(3) {
+  grid-area: contacts;
+
+  @include margin-bottom-resize(23px, 64px, 70px);
+}
+
+.program-form__group:nth-child(4) {
+  grid-area: comments;
+
+  @include margin-bottom-resize(19px, 62px, 70px);
+}
+
+.program-form__group:nth-child(5) {
+  grid-area: additional;
+
+  @include margin-bottom-resize(34px, 51px, 57px);
+}
+
+.program-form__wrapper {
+  grid-area: wrapper;
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 21px;
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+    align-items: center;
+    column-gap: 60px;
+  }
+
+  @media (min-width: $desktop-width) {
+    column-gap: 80px;
+  }
+}
+
+.program-form__button {
+  @media (min-width: $tablet-width) {
+    padding-block: 14px;
+    flex: 0 0 calc((100% - 60px) / 2);
+  }
+
+  @media (min-width: $desktop-width) {
+    flex-basis: calc((100% - 80px) / 2);
+  }
+}
+
+.program-form__text-required {
+  margin-block: 0;
+  line-height: 16px;
+  text-align: center;
+  color: $basic-black;
+
+  @media (min-width: $tablet-width) {
+    flex: 0 0 calc((100% - 60px) / 2);
+    text-align: left;
+
+    @include font-resize(16px, 16px);
+  }
+
+  @media (min-width: $desktop-width) {
+    flex-basis: calc((100% - 80px) / 2);
+  }
+}

@@ -1,0 +1,81 @@
+@use "../common" as *;
+
+.gift {
+  position: relative;
+  padding: 187px 58px 43px;
+  min-height: 290px;
+  background-image:
+    linear-gradient(rgba($basic-green, 0.85)),
+    image-set(
+      url("../../images/mobile/1x/gift-background-mobile@1x.webp") type("image/webp") 1x,
+      url("../../images/mobile/2x/gift-background-mobile@2x.webp") type("image/webp") 2x,
+      url("../../images/mobile/1x/gift-background-mobile@1x.png") type("image/png") 1x,
+      url("../../images/mobile/2x/gift-background-mobile@2x.png") type("image/png") 2x
+    );
+
+  background-size: cover;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 58px;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background-image: url("../../icons/stack.svg#icon-gift");
+    transform: translateX(-50%);
+
+    @media (min-width: $tablet-width) {
+      top: 50%;
+      left: 78px;
+      transform: translate(0, -50%);
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 56px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 71px 125px 69px 421px;
+    min-height: 200px;
+    background-image:
+      linear-gradient(rgba($basic-green, 0.85)),
+      image-set(
+        url("../../images/tablet/1x/gift-background-tablet@1x.webp") type("image/webp") 1x,
+        url("../../images/tablet/2x/gift-background-tablet@2x.webp") type("image/webp") 2x,
+        url("../../images/tablet/1x/gift-background-tablet@1x.png") type("image/png") 1x,
+        url("../../images/tablet/2x/gift-background-tablet@2x.png") type("image/png") 2x
+      );
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 185px 42px 43px;
+    min-height: 288px;
+    background-image:
+      linear-gradient(rgba($basic-green, 0.85)),
+      image-set(
+        url("../../images/desktop/1x/gift-background-desktop@1x.webp") type("image/webp") 1x,
+        url("../../images/desktop/2x/gift-background-desktop@2x.webp") type("image/webp") 2x,
+        url("../../images/desktop/1x/gift-background-desktop@1x.png") type("image/png") 1x,
+        url("../../images/desktop/2x/gift-background-desktop@2x.png") type("image/png") 2x
+      );
+  }
+}
+
+.gift__description {
+  margin: 0;
+  text-align: center;
+
+  @include font($primary-font, 16px, 20px, $basic-white);
+
+  @media (min-width: $tablet-width) {
+    text-align: left;
+  }
+
+  @media (min-width: $desktop-width) {
+    text-align: center;
+  }
+}

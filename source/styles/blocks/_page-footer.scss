@@ -1,0 +1,59 @@
+@use "../common" as *;
+
+.page-footer {
+  padding-block: 39px 40px;
+  background-color: $basic-grey;
+
+  &--absolute-404 {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    bottom: 0;
+    width: fit-content;
+    background-color: transparent;
+    color: $basic-black;
+    transform: translateX(-50%);
+  }
+
+  @media (min-width: $tablet-width) {
+    padding-block: 58px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-block: 67px;
+  }
+}
+
+.page-footer__container {
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  gap: 40px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 1px;
+    background-color: $special-light-grey6;
+
+    @media (min-width: $tablet-width) {
+      content: none;
+    }
+  }
+
+  &::before {
+    top: 44px;
+  }
+
+  &::after {
+    top: 106px;
+  }
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

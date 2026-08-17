@@ -1,0 +1,119 @@
+@use "../common" as *;
+
+.hero {
+  position: relative;
+  min-height: 480px;
+  padding-top: 27px;
+  background-image:
+    linear-gradient(to bottom, rgba($basic-green, 0.85) 302px, $basic-white 302px, $basic-white 100%),
+    image-set(
+      url("../../images/mobile/1x/hero-background-mobile@1x.webp") type("image/webp") 1x,
+      url("../../images/mobile/2x/hero-background-mobile@2x.webp") type("image/webp") 2x,
+      url("../../images/mobile/1x/hero-background-mobile@1x.jpg") type("image/jpeg") 1x,
+      url("../../images/mobile/2x/hero-background-mobile@2x.jpg") type("image/jpeg") 2x
+    ),
+    linear-gradient(to bottom, $background-gray-color 302px, $basic-white 302px, $basic-white 100%);
+  background-repeat: no-repeat;
+  background-position: top center;
+  text-align: center;
+
+  @include font($secondary-font, 14px, 14px, $basic-white);
+
+  @media (min-width: $tablet-width) {
+    min-height: 875px;
+    padding-top: 65px;
+    background-image: none;
+    text-align: left;
+
+    @include font($secondary-font, 20px, 20px, $basic-black);
+  }
+
+  @media (min-width: $desktop-width) {
+    min-height: 694px;
+    padding-top: 224px;
+    background-image:
+      linear-gradient(to right, rgba($basic-white, 0) 50%, rgba($basic-green, 0.85) 50%, rgba($basic-green, 0.85) 100%),
+      image-set(
+        url("../../images/desktop/1x/hero-background-desktop@1x.webp") type("image/webp") 1x,
+        url("../../images/desktop/2x/hero-background-desktop@2x.webp") type("image/webp") 2x,
+        url("../../images/desktop/1x/hero-background-desktop@1x.jpg") type("image/jpeg") 1x,
+        url("../../images/desktop/2x/hero-background-desktop@2x.jpg") type("image/jpeg") 2x
+      ),
+      linear-gradient(to right, rgba($basic-white, 0) 50%, $background-gray-color 50%, #4c4b50 100%);
+    background-position: top, calc(50% + 521px);
+  }
+}
+
+.hero__title {
+  margin: 0;
+  margin-bottom: 25px;
+  min-width: 250px;
+  font-weight: 400;
+
+  @include font-resize(36px, 36px);
+
+  @media (min-width: $tablet-width) {
+    margin-left: 90px;
+    margin-bottom: 40px;
+
+    @include font-resize(60px, 60px);
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-left: 80px;
+    width: 416px;
+  }
+}
+
+.hero__description {
+  margin: 0;
+  margin-bottom: 29px;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet-width) {
+    margin-left: 90px;
+    margin-bottom: 50px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-left: 80px;
+    margin-bottom: 52px;
+    width: 416px;
+  }
+}
+
+.hero__image {
+  margin-bottom: 3px;
+  min-height: 270px;
+
+  @media (min-width: $tablet-width) {
+    position: absolute;
+    bottom: -2px;
+    z-index: -1;
+    min-height: 609px;
+  }
+
+  @media (min-width: $desktop-width) {
+    top: 143px;
+    left: calc(50% - 164px);
+    z-index: 5;
+    min-height: 499px;
+  }
+}
+
+.hero__button {
+  text-decoration: none;
+
+  @media (min-width: $tablet-width) {
+    margin-left: 90px;
+    width: 244px;
+
+    &.button {
+      padding: 14px;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-left: 80px;
+  }
+}

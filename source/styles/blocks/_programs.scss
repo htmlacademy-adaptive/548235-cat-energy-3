@@ -1,0 +1,243 @@
+@use "../common" as *;
+
+.programs {
+  padding-block: 20px;
+
+  @media (min-width: $tablet-width) {
+    padding-block: 0 45px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-block: 82px 71px;
+  }
+}
+
+.programs__list {
+  @include list-style;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: $tablet-width) {
+    row-gap: 30px;
+  }
+
+  @media (min-width: $desktop-width) {
+    flex-direction: row;
+    column-gap: 80px;
+  }
+}
+
+.programs__item {
+  flex-grow: 1;
+  position: relative;
+  min-height: 266px;
+  padding: 30px 20px 18px;
+  background-color: $basic-grey;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  &::after {
+    top: 24px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: $basic-green;
+    border-radius: 50%;
+
+    @media (min-width: $tablet-width) {
+      top: 92px;
+      left: auto;
+      right: 63px;
+      width: 200px;
+      height: 200px;
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 47px;
+      left: 52px;
+      right: auto;
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 77px 52px 53px;
+    min-height: 372px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 77px 52px 55px;
+  }
+
+  &--slim {
+    .programs__link::after {
+      /* stylelint-disable-next-line max-nesting-depth */
+      @media (min-width: $tablet-width) {
+        right: 4px;
+      }
+      /* stylelint-disable-next-line max-nesting-depth */
+      @media (min-width: $desktop-width) {
+        right: 10px;
+      }
+    }
+  }
+
+  &--slim::before {
+    top: 21px;
+    left: 27px;
+    z-index: 1;
+    width: 36px;
+    height: 50px;
+    background-image: url("../../icons/stack.svg#cat-slim");
+    background-size: 36px 50px;
+    background-repeat: no-repeat;
+
+    @media (min-width: $tablet-width) {
+      top: 81px;
+      left: auto;
+      right: 92px;
+      width: 140px;
+      height: 194px;
+      background-size: 140px 194px;
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 41px;
+      left: 67px;
+      right: auto;
+      width: 70px;
+      height: 97px;
+      background-size: 70px 97px;
+    }
+  }
+
+  &--muscle::before {
+    top: 35px;
+    left: 12px;
+    z-index: 1;
+    width: 68px;
+    height: 28px;
+    background-image: url("../../icons/stack.svg#cat-muscle");
+    background-size: 68px 28px;
+    background-repeat: no-repeat;
+
+    @media (min-width: $tablet-width) {
+      top: 135px;
+      left: auto;
+      right: 28px;
+      width: 268px;
+      height: 112px;
+      background-size: 268px 112px;
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 67px;
+      left: 33px;
+      right: auto;
+      width: 134px;
+      height: 56px;
+      background-size: 134px 56px;
+    }
+  }
+}
+
+.programs__title {
+  margin-block: 0 29px;
+  margin-left: 70px;
+  font-weight: 400;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+
+  @include font($secondary-font, 24px, 37px, $basic-black);
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 24px;
+    margin-left: 0;
+
+    @include font-resize(36px, 36px);
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 73px;
+    margin-left: 162px;
+  }
+}
+
+.programs__description {
+  margin-block: 0 19px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid $special-light-grey6;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 51px;
+    padding-bottom: 0;
+    width: 340px;
+    border-bottom: none;
+    color: $basic-black;
+
+    @include font-resize(16px, 24px);
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 27px;
+    width: 457px;
+  }
+}
+
+.programs__link {
+  display: block;
+  position: relative;
+  width: 133px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  @include font($secondary-font, 16px, 16px, $basic-black);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: calc(100% - 32px);
+    width: 24px;
+    height: 12px;
+    background-image: url("../../icons/stack.svg#icon-arrow");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: left center;
+    transition: transform 0.2s ease;
+
+    @media (min-width: $tablet-width) {
+      top: 10px;
+    }
+
+    @media (min-width: $desktop-width) {
+      right: 15px;
+    }
+  }
+
+  &:hover::after {
+    transform: scaleX(1.33);
+  }
+
+  &:active,
+  &:active::after {
+    opacity: 0.3;
+  }
+
+  @media (min-width: $tablet-width) {
+    width: 161px;
+
+    @include font-resize(20px, 30px);
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 168px;
+  }
+}

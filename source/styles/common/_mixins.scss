@@ -1,0 +1,74 @@
+@use "variables.scss" as *;
+
+@mixin font-face($font-family, $src, $font-style: normal, $font-weight: 400) {
+  @font-face {
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src: $src;
+    font-display: swap;
+  }
+}
+
+@mixin list-style($padding: 0, $margin: 0) {
+  margin: $margin;
+  padding: $padding;
+  list-style: none;
+}
+
+@mixin font($font-family, $font-size, $line-height, $color) {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color;
+}
+
+@mixin font-resize($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin absolute-h-line($color: $basic-green, $width: 100vw, $height: 2px) {
+  content: "";
+  position: absolute;
+  top: 60%;
+  width: $width;
+  height: $height;
+  background-color: $color;
+  transform: translateY(-60%);
+}
+
+@mixin title-line-before($color: $basic-green) {
+  &::before {
+    @include absolute-h-line($color);
+
+    z-index: -1;
+  }
+}
+
+/* stylelint-disable-next-line length-zero-no-unit */
+@mixin title-line-after($gap-tablet: 0px, $gap-desktop: 70px, $color: $basic-green) {
+  &::after {
+    @media (min-width: $tablet-width) {
+      @include absolute-h-line($color);
+
+      right: calc(100% + #{$gap-tablet}); /* Нулевое значение по умолчанию необходимо для кооректного отображения декор. элемента */
+    }
+
+    @media (min-width: $desktop-width) {
+      right: calc(100% + #{$gap-desktop});
+    }
+  }
+}
+
+@mixin margin-bottom-resize($mobile, $tablet, $desktop) {
+  margin-bottom: $mobile;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: $tablet;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: $desktop;
+  }
+}

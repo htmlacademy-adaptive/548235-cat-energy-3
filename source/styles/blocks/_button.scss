@@ -1,0 +1,60 @@
+@use "../common" as *;
+
+.button {
+  display: block;
+  padding: 10px;
+  background-color: $basic-green;
+  border: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  transition: background-color 0.15s ease;
+
+  @include font($secondary-font, 16px, 20px, $basic-white);
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus-visible,
+  &:not(:disabled):active {
+    background-color: $special-green;
+  }
+
+  &:not(:disabled):active {
+    color: rgba($basic-white, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &--alternate {
+    background-color: $basic-grey;
+    color: $base-color-text;
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus-visible,
+    &:not(:disabled):active {
+      background-color: $special-light-grey2;
+    }
+
+    &:not(:disabled):active {
+      color: rgba($base-color-text, 0.3);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  &--font-mobile-m {
+    @include font-resize(20px, 26px);
+  }
+
+  &--font-tablet-m {
+    @media (min-width: $tablet-width) {
+      @include font-resize(20px, 26px);
+    }
+  }
+}

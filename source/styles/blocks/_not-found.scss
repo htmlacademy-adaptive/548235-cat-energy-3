@@ -1,0 +1,54 @@
+@use "../common" as *;
+
+.not-found {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "title title"
+    "txt   txt";
+  gap: 30px;
+  padding-block: 350px;
+  height: 100vh;
+  color: $basic-black;
+  text-align: center;
+
+  @media (min-width: $tablet-width) {
+    padding-block: 250px;
+    row-gap: 50px;
+  }
+}
+
+.not-found__title {
+  grid-area: title;
+  margin-block: 0;
+
+  @include font-resize(150px, 1);
+
+  @media (min-width: $tablet-width) {
+    @include font-resize(365px, 1);
+  }
+}
+
+.not-found__text {
+  grid-area: txt;
+  margin-block: 0;
+
+  @media (min-width: $tablet-width) {
+    @include font-resize(22px, 1);
+  }
+}
+
+.not-found__link {
+  align-self: center;
+  text-decoration: none;
+
+  &:first-of-type {
+    @media (min-width: $desktop-width) {
+      justify-self: end;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 350px;
+  }
+}

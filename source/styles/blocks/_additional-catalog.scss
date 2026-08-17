@@ -1,0 +1,61 @@
+@use "../common" as *;
+
+.additional-catalog {
+  overflow-x: hidden;
+}
+
+.additional-catalog__container {
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: auto 245px;
+    grid-template-areas:
+      "title title"
+      "list  gift";
+    column-gap: 80px;
+  }
+}
+
+.additional-catalog__title {
+  @include title-line-before;
+  @include title-line-after;
+
+  grid-area: title;
+  position: relative;
+  margin-block: 0 35px;
+  padding-right: 40px;
+  width: fit-content;
+  background-color: $basic-white;
+  font-weight: 400;
+
+  @include font($secondary-font, 24px, 24px, $basic-black);
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 80px;
+    padding-left: 40px;
+
+    @include font-resize(32px, 32px);
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-left: 0;
+
+    @include font-resize(40px, 40px);
+  }
+}
+
+.additional-catalog .additional-catalog__list {
+  grid-area: list;
+  margin-bottom: 54px;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 70px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 0;
+  }
+}
+
+.additional-catalog__gift {
+  grid-area: gift;
+}

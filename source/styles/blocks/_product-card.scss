@@ -1,0 +1,141 @@
+@use "../common" as *;
+
+.product-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "image  wrapper"
+    "button button";
+  row-gap: 20px;
+  padding-block: 23px 24px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 100vw;
+    height: 1px;
+    background-color: $special-light-grey2;
+    transform: translateX(-50%);
+
+    @media (min-width: $tablet-width) {
+      content: none;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    grid-template:
+      "image" auto
+      "wrapper" 1fr
+      "button" auto
+      / 1fr;
+    row-gap: 22px;
+    padding: 10px 37px 40px;
+    width: 324px;
+    min-height: 511px;
+    background-image: linear-gradient(to bottom, $basic-white 81px, $basic-grey 81px, $basic-grey 100%);
+  }
+
+  @media (min-width: $desktop-width) {
+    row-gap: 12px;
+    padding: 9px 38px 40px;
+    width: 245px;
+  }
+}
+
+.product-card__image-link {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $tablet-width) {
+    justify-self: center;
+    width: 200px;
+    height: 210px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 169px;
+  }
+}
+
+.product-card__wrapper {
+  display: grid;
+  grid-area: wrapper;
+  grid-template-rows: auto 1fr;
+  row-gap: 14px;
+
+  @media (min-width: $tablet-width) {
+    row-gap: 20px;
+  }
+
+  @media (min-width: $desktop-width) {
+    row-gap: 24px;
+  }
+}
+
+.product-card__title {
+  margin-block: 0;
+  width: 76px;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  @include font($secondary-font, 16px, 20px, $special-dark-grey);
+
+  @media (min-width: $tablet-width) {
+    justify-self: center;
+    width: 135px;
+    text-align: center;
+
+    @include font-resize(20px, 24px);
+  }
+}
+
+.product-card__specs {
+  @include font-resize(12px, 16px);
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    row-gap: 12px;
+
+    @include font-resize(16px, 20px);
+  }
+}
+
+.product-card__specs-group {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &::before {
+    @media (min-width: $tablet-width) {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      width: 100%;
+      height: 1px;
+      background-color: $special-light-grey3;
+    }
+
+    @media (min-width: $desktop-width) {
+      bottom: -9px;
+    }
+  }
+}
+
+.product-card__spec-value {
+  margin-left: 0;
+  overflow-wrap: anywhere;
+}
+
+.product-card__link {
+  grid-area: button;
+  align-self: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}

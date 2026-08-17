@@ -1,0 +1,31 @@
+@use "../common" as *;
+
+.page-header {
+  position: relative;
+  min-height: 65px;
+
+  @media (min-width: $desktop-width) {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+  }
+
+  &--absolute-404 {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    width: fit-content;
+    background-color: transparent;
+    transform: translateX(-50%);
+
+    @media (min-width: $desktop-width) {
+      width: fit-content;
+    }
+  }
+
+  &--static {
+    @media (min-width: $desktop-width) {
+      position: static;
+    }
+  }
+}
