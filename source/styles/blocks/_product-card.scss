@@ -50,6 +50,15 @@
   justify-content: center;
   align-items: center;
 
+  &:hover .product-card__image,
+  &:focus-visible .product-card__image {
+    opacity: 0.8;
+  }
+
+  &:active .product-card__image {
+    opacity: 0.6;
+  }
+
   @media (min-width: $tablet-width) {
     justify-self: center;
     width: 200px;
@@ -59,6 +68,10 @@
   @media (min-width: $desktop-width) {
     width: 169px;
   }
+}
+
+.product-card__image {
+  transition: opacity 0.15s ease;
 }
 
 .product-card__wrapper {
@@ -73,6 +86,20 @@
 
   @media (min-width: $desktop-width) {
     row-gap: 24px;
+  }
+}
+
+.product-card__title-link {
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.4;
   }
 }
 

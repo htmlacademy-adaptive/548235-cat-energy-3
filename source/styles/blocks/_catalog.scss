@@ -15,6 +15,10 @@
     @media (min-width: $tablet-width) {
       content: none;
     }
+
+    .no-js & {
+      content: none;
+    }
   }
 
   @media (min-width: $tablet-width) {

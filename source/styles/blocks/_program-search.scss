@@ -5,6 +5,10 @@
   border-top: 1px solid $special-light-grey6;
   overflow-x: hidden;
 
+  .no-js & {
+    border: none;
+  }
+
   @media (min-width: $tablet-width) {
     padding-block: 65px 60px;
     border-top: none;
